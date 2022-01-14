@@ -1,0 +1,19 @@
+// less 变量
+.bg(@name, @width, @height) {
+  display: inline-block;
+  width: @width;
+  height: @height;
+  background-image: url(@name);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes loop-rotate {
+  0% {
+    transform: rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
