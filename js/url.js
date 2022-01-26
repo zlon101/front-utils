@@ -1,35 +1,35 @@
-// 获取url参数
+/**
+ * 获取url参数
+ * @param {string} url 可选
+ * @returns Object
+ */
 export function getParams(url) {
   const params = {};
   const _url = url || window.location.search;
   _url.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>params[k]=v);
   return params;
 }
-// 设置url参数
+
+/**
+ * 设置url参数
+ * @param {Object} args: { k, v }
+ * @returns url: string
+ */
 export function setUrlQuery(args) {
   const { location } = window;
   if (typeof args !== 'object') {
     return location.pathname + location.search;
   }
-  let { search } = location;
-  const newQuery = {};
-  const startInd = search.indexOf('?');
-  if (startInd !== -1) {
-    search = search.slice(startInd + 1);
-    const list = search.split('&');
-    list.forEach(item => {
-      const [k, v] = item.split('=');
-      newQuery[k] = v;
-    });
-  }
 
+  const newQuery = getParams();
   const newKList = Object.keys(args);
-  newKList.forEach(k => {
+  newKList.forEach((k) => {
     newQuery[k] = args[k];
   });
-
   let newPath = `${location.pathname}?`;
-  const list = Object.keys(newQuery).map(k => `${k}=${newQuery[k]}`);
+  const list = Object.keys(newQuery)
+    .filter((k) => newQuery[k])
+    .map((k) => `${k}=${newQuery[k]}`);
   newPath += list.join('&');
   return newPath;
 }
