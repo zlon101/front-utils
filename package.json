@@ -1,0 +1,19 @@
+{
+  "name": "util-library",
+  "version": "1.0.0",
+  "description": "> 前端通用库，包含通用Js、Css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zlong1010/front-utils.git"
+  },
+  "keywords": [],
+  "author": "zlong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zlong1010/front-utils/issues"
+  },
+  "homepage": "https://github.com/zlong1010/front-utils#readme"
+}

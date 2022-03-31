@@ -1,6 +1,6 @@
 /**
  * 判断dom元素文本是否溢出
- * @param dom 
+ * @param dom
  * @returns boolean
  */
 export function isOverflow(dom) {
@@ -32,3 +32,23 @@ export function copyString(str) {
   document.body.removeChild(input);
   return isSuccess;
 }
+
+/**
+ * 检查浏览器是否支持CSS
+ * @param attribute
+ * @param value
+ * @return {Boolean}
+ */
+export const supportsCSS = (attribute, value) => {
+  if (window.CSS && window.CSS.supportsCSS) {
+    if (typeof value === 'undefined') return window.CSS.supportsCSS(attribute);
+    return window.CSS.supportsCSS(attribute, value);
+  }
+
+  const elem = document.createElement('div');
+  if (attribute in elem.style) {
+    elem.style[attribute] = value;
+    return elem.style[attribute] === value;
+  }
+  return false;
+};
