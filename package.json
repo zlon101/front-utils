@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/zlong1010/front-utils/issues"
   },
-  "homepage": "https://github.com/zlong1010/front-utils#readme"
+  "homepage": "https://github.com/zlong1010/front-utils#readme",
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "eslint-plugin-vue": "^8.5.0"
+  }
 }
