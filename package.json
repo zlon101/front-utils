@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "> 前端通用库，包含通用Js、Css",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,11 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
     "prettier": "^2.6.1"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }

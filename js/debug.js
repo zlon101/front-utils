@@ -20,7 +20,7 @@ class Debug {
       'white-space': 'pre',
       'z-index': 1111111,
       cursor: 'default',
-      transform: 'translate(0, 0)',
+      transform: 'translate(0, 0)'
     };
     targetDom.setAttribute('style', Debug.styleObjToStr(initStyleObj));
     document.body.appendChild(targetDom);
@@ -31,8 +31,8 @@ class Debug {
       Debug.styleObjToStr({
         width: '100%',
         height: '100%',
-        overflow: 'scroll',
-      }),
+        overflow: 'scroll'
+      })
     );
     targetDom.appendChild(contentEle);
     this.contentEle = contentEle;
@@ -61,8 +61,8 @@ class Debug {
         top: '10px',
         right: '32px',
         cursor: 'pointer',
-        border: '1px solid blue',
-      }),
+        border: '1px solid blue'
+      })
     );
     maxBtn.setAttribute('data-type', 'normal');
     targetDom.appendChild(maxBtn);
@@ -100,8 +100,8 @@ class Debug {
         bottom: '10px',
         right: '10px',
         cursor: 'pointer',
-        border: '1px solid blue',
-      }),
+        border: '1px solid blue'
+      })
     );
     copyEle.textContent = '复制';
     targetDom.appendChild(copyEle);
@@ -122,8 +122,8 @@ class Debug {
         right: '10px',
         cursor: 'pointer',
         border: '1px solid blue',
-        'text-align': 'center',
-      }),
+        'text-align': 'center'
+      })
     );
     copyEle.textContent = 'X';
     targetDom.appendChild(copyEle);
@@ -167,13 +167,13 @@ class Debug {
     const eleRect = targetEle.getBoundingClientRect();
     const viewportClient = {
       width: document.documentElement.clientWidth,
-      height: document.documentElement.clientHeight,
+      height: document.documentElement.clientHeight
     };
     const styleRect = {
       top: eleRect.top,
       right: viewportClient.width - eleRect.right,
       bottom: viewportClient.height - eleRect.bottom,
-      left: eleRect.left,
+      left: eleRect.left
     };
     if (direction) {
       targetEle.style.width = 'auto';
@@ -236,19 +236,19 @@ class Debug {
     const angles = {};
     angles.topLeft = {
       x: eleRect.left,
-      y: eleRect.top,
+      y: eleRect.top
     };
     angles.topRight = {
       x: eleRect.right,
-      y: eleRect.top,
+      y: eleRect.top
     };
     angles.bottomLeft = {
       x: eleRect.left,
-      y: eleRect.bottom,
+      y: eleRect.bottom
     };
     angles.bottomRight = {
       x: eleRect.right,
-      y: eleRect.bottom,
+      y: eleRect.bottom
     };
     const keys = Object.keys(angles);
     for (let i = 0; i < keys.length; i++) {

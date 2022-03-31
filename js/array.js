@@ -25,7 +25,7 @@ export function unique(srcArr, noEmpty = false) {
 export function arrayIntersection(...arrWarp) {
   const minLen = Math.min(...arrWarp.map(item => item.length));
   const minIndex = arrWarp.findIndex(item => item.length === minLen);
-  allItems = unique(arrWarp[minIndex]);
+  const allItems = unique(arrWarp[minIndex]);
   const dstArr = allItems.filter(item => arrWarp.every(arrWarpItem => arrWarpItem.includes(item)));
   return dstArr;
 }

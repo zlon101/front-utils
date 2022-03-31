@@ -1,15 +1,15 @@
 module.exports = {
   root: true,
-  // 运行环境, 不同环境有对应的预定义全局变量
+  // 运行环境, 不同环境有对应的预定义全局变量, 解决 windows navigator 未定义报错
   env: {
     node: true,
-    browser: false,
+    browser: true,
     commonjs: false,
     es6: true
   },
   // 继承基础配置(已有的规则集) [airbnb-base | eslint:recommended]
   extends: ['eslint:recommended', 'plugin:vue/essential', 'prettier'],
-  plugins: ['vue'],
+  plugins: ['vue', 'prettier'],
   parserOptions: {
     // parser: 'babel-eslint',
     ecmaVersion: 6,

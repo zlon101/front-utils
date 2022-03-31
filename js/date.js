@@ -1,7 +1,3 @@
-* @param value 需要过去类型的数据
-* @returns {string} 对应类型名称
-* @returns {string} 对应类型名称
-
 /**
  * 格式化时间
  * @param date 输入时间, 支持Date和String类型, 日的占位符必须用M, 因为m表示分
