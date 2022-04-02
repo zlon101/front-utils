@@ -1,4 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx --no -- commitlint --edit ""
+# 检查commit 信息
+# npx --no -- commitlint --edit ""
