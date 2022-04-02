@@ -16,6 +16,7 @@ export function isOverflow(dom) {
   return false;
 }
 
+export const x = 1;
 
 // 复制
 export function copyString(str) {
