@@ -40,3 +40,5 @@ export default function log(...args) {
 }
 
 window.log = log;
+
+var x = 1;
