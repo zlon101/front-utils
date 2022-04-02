@@ -53,5 +53,3 @@ export const supportsCSS = (attribute, value) => {
   }
   return false;
 };
-
-var x = 1;
