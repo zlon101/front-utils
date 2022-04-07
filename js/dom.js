@@ -36,6 +36,7 @@ export function copyString(str) {
 
 /**
  * 检查浏览器是否支持CSS
+ * 浏览器遇到不支持的属性值时，浏览器会直接把这个值抛弃
  * @param attribute
  * @param value
  * @return {Boolean}
@@ -49,6 +50,7 @@ export const supportsCSS = (attribute, value) => {
   const elem = document.createElement('div');
   if (attribute in elem.style) {
     elem.style[attribute] = value;
+    // window.getComputedStyle
     return elem.style[attribute] === value;
   }
   return false;
