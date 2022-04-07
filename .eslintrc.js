@@ -9,6 +9,7 @@ module.exports = {
   },
   // 继承基础配置(已有的规则集) [airbnb-base | eslint:recommended]
   extends: ['eslint:recommended', 'plugin:vue/essential', 'prettier'],
+  // 插件名称省略 eslint-plugin 前缀
   plugins: ['vue', 'prettier'],
   parserOptions: {
     // parser: 'babel-eslint',
