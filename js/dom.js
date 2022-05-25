@@ -9,8 +9,9 @@ export function isOverflow(dom) {
     return false;
   }
   // clientWidth
-  // if (dom.scrollWidth > dom.offsetWidth || dom.scrollHeight > dom.offsetHeight)
-  if (dom.scrollWidth > dom.offsetWidth) {
+  const widthDiff = dom.scrollWidth - dom.offsetWidth;
+  const heightDiff = dom.scrollHeight - dom.offsetHeight;
+  if (widthDiff > 2 || heightDiff > 2) {
     return true;
   }
   return false;
