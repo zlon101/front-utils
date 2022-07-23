@@ -18,3 +18,14 @@ function getSizeFromBase64(base64) {
   const size = `${fileLength / 1024 ** 2}`;
   return `${size}MB`;
 }
+
+// 下载文件
+function downloadFile(fileName, val) {
+  const fileContent = typeof val === 'object' ? JSON.stringify(val, null, 2) : val;
+
+  const aTag = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+  const URL = window.URL || window.webkitURL || window;
+  aTag.href = URL.createObjectURL(new Blob([fileContent]));
+  aTag.download = fileName;
+  aTag.click();
+}
