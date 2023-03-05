@@ -1,10 +1,58 @@
+/*
+ * 创建指定时区的日期对象
+ * 东八: 8
+ * */
+export const createDate = (val, timezone = 8) => {
+  let timestamp = 0;
+
+  const type = Object.prototype.toString.call(val).slice(8, -1);
+  console.log(type);
+  if (type === 'Date') {
+    timestamp = val.getTime();
+  } else if (type === 'Number') {
+    // 时间戳，毫秒
+    timestamp = val;
+  } else if (type === 'String') {
+    // YYYY-MM-DDTHH:mm:ss
+    val = val.replace(/\D/g, '');
+    if (val.length < 14) {
+      throw new Error('参数格式错误，YYYY-MM-DD HH:mm:ss');
+    }
+    const y = Number(val.slice(0, 4));
+    val = val.slice(4);
+    // 月-日-时-分-秒-毫秒
+    const rest = [0, 0, 0, 0, 0, 0];
+    let ind = 0;
+    let len = 2;
+    while (val) {
+      if (ind === rest.length - 1) {
+        len = val.length;
+      }
+      rest[ind++] = Number(val.slice(0, len));
+      val = val.slice(len);
+    }
+    rest.unshift(y);
+    timestamp = Date.UTC(...rest);
+  } else {
+    if (!val) {
+      timestamp = Date.now();
+    } else {
+      throw new Error('未知的参数格式，请输入时间戳、字符串、Date');
+    }
+  }
+  // 本地时区 getTimezoneOffset
+  const localTimezone = (new Date(0)).getTimezoneOffset(); // 分
+  const targetTimestamp = (timezone * 60 + localTimezone) * 60 * 1000 + timestamp;
+  return new Date(targetTimestamp);
+};
+
 /**
  * 格式化时间
  * @param date 输入时间, 支持Date和String类型, 日的占位符必须用M, 因为m表示分
  * @param format 时间格式
  * @returns string 格式化后的字符串时间
  */
- export function dateToString(date, format = 'YYYY-MM-DD') {
+export function dateToString(date, format = 'YYYY-MM-DD') {
   function formatStr(dateStr) {
     const str = `${dateStr}0000000000000000`.replace(/\D/g, '');
     const Y = str.slice(0, 4);

@@ -29,3 +29,22 @@ function downloadFile(fileName, val) {
   aTag.download = fileName;
   aTag.click();
 }
+
+export const ImgType = ['.png', '.jpg', '.jpeg', '.gif', '.tif', '.bmp', '.svg'];
+export const VideoType = ['.mp4', '.mov', '.wmv', '.flv', '.avi', '.avchd', '.mkv', '.webm'];
+export const AudioType = ['.mp3', '.aac', '.wav', '.flac', '.ape', '.alac', '.mkv', '.webm'];
+
+export const isImage = fileExt => fileExt && ImgType.includes(fileExt.toLowerCase());
+export const isVideo = fileExt => fileExt && VideoType.includes(fileExt.toLowerCase());
+export const isAudio = fileExt => fileExt && AudioType.includes(fileExt.toLowerCase());
+
+// base64 转换为blob格式
+export const base64ToBlob = (base64, mimeType) => {
+  const bytes = window.atob(base64.split('base64,')[1]);
+  // 处理异常,将ascii码小于0的转换为大于0
+  const ia = [];
+  for (let i = 0; i < bytes.length; i++) {
+    ia[i] = bytes.charCodeAt(i);
+  }
+  return new Blob([new Uint8Array(ia)], { type: mimeType });
+};
